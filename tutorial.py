@@ -79,9 +79,9 @@ class PongGame:
             else:
                 self.game.move_paddle(left=False, up=False)
 
-            game_info = game.loop()
+            game_info = self.game.loop()
 
-            game.draw(draw_score=False, draw_hits=True)
+            self.game.draw(draw_score=True, draw_hits=False)
             pygame.display.update()
 
             if game_info.left_score >= 1 or game_info.right_score >= 1 or game_info.left_hits > 50:
@@ -108,14 +108,14 @@ def eval_genomes(genomes, config):
 
 
 def run_neat(config):
-    p = neat.Checkpointer.restore_checkpoint('neat-checkpoint-7')
-    #p = neat.Population(config)
+    p = neat.Checkpointer.restore_checkpoint('neat-checkpoint-10')
+    # p = neat.Population(config)
     p.add_reporter(neat.StdOutReporter(True))
     stats = neat.StatisticsReporter()
     p.add_reporter(stats)
     p.add_reporter(neat.Checkpointer(1))
 
-    winner = p.run(eval_genomes, 1)
+    winner = p.run(eval_genomes, 50)
     with open("best.pickle", "wb") as f:
         pickle.dump(winner, f)
 
