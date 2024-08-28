@@ -2,9 +2,8 @@ import pygame
 import math
 import random
 
-
 class Ball:
-    MAX_VEL = 8
+    MAX_VEL = 2
     RADIUS = 7
 
     def __init__(self, x, y):

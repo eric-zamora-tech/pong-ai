@@ -1,7 +1,6 @@
 import pygame
 from pong import Game
 import neat
-import os
 import pickle
 
 
@@ -18,7 +17,7 @@ class PongGame:
         run = True
         clock = pygame.time.Clock()
         while run:
-            clock.tick(60)
+            clock.tick()
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     run = False
@@ -108,8 +107,8 @@ def eval_genomes(genomes, config):
 
 
 def run_neat(config):
-    p = neat.Checkpointer.restore_checkpoint('neat-checkpoint-10')
-    # p = neat.Population(config)
+    # p = neat.Checkpointer.restore_checkpoint('neat-checkpoint-10')
+    p = neat.Population(config)
     p.add_reporter(neat.StdOutReporter(True))
     stats = neat.StatisticsReporter()
     p.add_reporter(stats)
@@ -129,14 +128,3 @@ def test_ai(config):
 
     game = PongGame(window, width, height)
     game.test_ai(winner, config)
-
-
-if __name__ == "__main__":
-    local_dir = os.path.dirname(__file__)
-    config_path = os.path.join(local_dir, "config.txt")
-
-    config = neat.Config(neat.DefaultGenome, neat.DefaultReproduction,
-                         neat.DefaultSpeciesSet, neat.DefaultStagnation,
-                         config_path)
-    # run_neat(config)
-    test_ai(config)
