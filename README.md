@@ -27,6 +27,7 @@ $ python main.py
 
 ## Credits
 This game uses the following resources:
+- **freeCodeCamp** - [Java Game Programming - Develop a Brick Breaker Game](https://www.youtube.com/watch?v=K9qMm3JbOH0)
 - **Pygame** - For rendering the game and handling user input.
 - **NEAT-Python** - For implementing the AI training.
 - **Python** - For game logic and AI integration.
