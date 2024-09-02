@@ -15,6 +15,7 @@ if __name__ == "__main__":
     # Initialize Pygame
     pygame.init()
 
+    # Initialize clock
     clock=pygame.time.Clock()
 
     # Create a Pygame window
