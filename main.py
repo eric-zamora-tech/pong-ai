@@ -25,6 +25,8 @@ if __name__ == "__main__":
     # Create a font object
     font = pygame.font.Font(None, 24)
 
+    text_surface = font.render("Pong AI", False, (255, 255, 255))
+
     train_ai_button = PygameButton(700 / 6, 500 / 2, 150, 50, "Train AI")
     play_ai_button = PygameButton(4 * 700 / 6, 500 / 2, 150, 50, "Play AI")
 
@@ -34,7 +36,7 @@ if __name__ == "__main__":
         clock.tick(60)
 
         # Fill the display with color
-        screen.fill((155, 255, 155))
+        screen.fill((0, 0, 0))
 
         # Get events from the event queue
         for event in pygame.event.get():
@@ -54,6 +56,7 @@ if __name__ == "__main__":
                 print("Playing AI...")
                 pong.test_ai(config)
 
+        screen.blit(text_surface, (700 / 2 - text_surface.get_width() / 2, 50))
         train_ai_button.draw(screen)
         play_ai_button.draw(screen)
 
