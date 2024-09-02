@@ -50,8 +50,9 @@ if __name__ == "__main__":
         if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
             # Call the on_mouse_button_down() function
             if train_ai_button.button_rect.collidepoint(event.pos):
-                print("Training AI...")
+                print("Training AI....")
                 pong.run_neat(config)
+
             elif play_ai_button.button_rect.collidepoint(event.pos):
                 print("Playing AI...")
                 pong.test_ai(config)
