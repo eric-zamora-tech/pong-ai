@@ -57,6 +57,7 @@ if __name__ == "__main__":
                 pong.test_ai(config)
 
         screen.blit(text_surface, (700 / 2 - text_surface.get_width() / 2, 50))
+        
         train_ai_button.draw(screen)
         play_ai_button.draw(screen)
 
